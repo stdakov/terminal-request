@@ -1,0 +1,29 @@
+{
+    "name": "stdakov/terminalRequest",
+    "description": "Powerful tool for commands",
+    "license": "Apache",
+    "type": "library",
+    "keywords": [
+        "commands",
+        "request",
+        "console",
+        "terminal"
+    ],
+    "authors": [
+        {
+            "name": "Stanislav Dakov",
+            "email": "st.dakov@gmail.com"
+        }
+    ],
+    "support": {
+        "email": "st.dakov@gmail.com"
+    },
+    "autoload": {
+        "psr-4": {
+            "Terminal\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=5.4.0"
+    }
+}
