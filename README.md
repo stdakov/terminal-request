@@ -7,13 +7,13 @@ The preferred way to install this tool is through [composer](http://getcomposer.
 Either run
 
 ```
-php composer.phar require stdakov/terminalRequest
+php composer.phar require stdakov/terminal-request
 ```
 
 or add
 
 ```
-"stdakov/terminalRequest": "*"
+"stdakov/terminal-request": "*"
 ```
 
 
