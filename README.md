@@ -28,6 +28,19 @@ require 'vendor/autoload.php';
 php script1.php command subCommand -p 10 -b --param1 11 --param2 --pa "ttt aaa ssss" asdasd
 ```
 
+```php
+$terminal = new Terminal\Request();
+
+echo "Script:" . $terminal->getScript() . PHP_EOL;
+echo "Command:" . $terminal->getCommand() . PHP_EOL;
+echo "SubCommand:" . $terminal->getSubCommand() . PHP_EOL;
+foreach ($terminal->getParams() as $paramName => $paramValue) {
+    echo "Param $paramName has value '" . ($terminal->getParameter($paramName) === true ? "true" : $terminal->getParameter($paramName)) . "'" . PHP_EOL;
+}
+
+print_r($terminal->getParams());
+```
+
 Output
 
 ```
@@ -51,9 +64,27 @@ Param pa has value 'ttt aaa ssss'
 ```
 
 * Command2
+If you want to use multi short parameters like `-av "value of params v"` you have to set `true` Request constructor
+
+-a will have value true
+-v will have value "value of params v"
 
 ```
 php script2.php command subCommand -p 10 -b --param1 11 --param2 --pa -iv "ttt aaa ssss" asdasd
+```
+
+```php
+
+$terminal = new Terminal\Request(true);
+
+echo "Script:" . $terminal->getScript() . PHP_EOL;
+echo "Command:" . $terminal->getCommand() . PHP_EOL;
+echo "SubCommand:" . $terminal->getSubCommand() . PHP_EOL;
+foreach ($terminal->getParams() as $paramName => $paramValue) {
+    echo "Param $paramName has value '" . ($terminal->getParameter($paramName) === true ? "true" : $terminal->getParameter($paramName)) . "'" . PHP_EOL;
+}
+
+print_r($terminal->getParams());
 ```
 
 Output
