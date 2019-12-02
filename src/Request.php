@@ -17,16 +17,12 @@ class Request
     protected $params = [];
     /** @var string $script */
     protected $script;
-    /** @var bool $allowMultiShort */
-    protected $allowMultiShort = false;
 
     /**
      * Request constructor.
-     * @param bool $allowMultiShort
      */
-    public function __construct($allowMultiShort = false)
+    public function __construct()
     {
-        $this->allowMultiShort = $allowMultiShort;
         $this->parse($_SERVER['argv']);
     }
 
@@ -187,11 +183,7 @@ class Request
                     continue;
                 }
 
-                if (strlen($currentParamName) > 1 && !$this->allowMultiShort) {
-                    throw new \InvalidArgumentException("The short parameter '" . $currentParamName . "' has wrong name! Must have 1 letter!");
-                }
-
-                if (strlen($currentParamName) > 1 && $this->allowMultiShort) {
+                if (strlen($currentParamName) > 1) {
                     $combinedParameters = str_split($currentParamName);
                     //  the last one takes parameters
                     $currentParamName = array_pop($combinedParameters);
