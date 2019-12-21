@@ -81,9 +81,9 @@ class Request
             throw new \InvalidArgumentException("Wrong parameter name '" . $name . "'");
         }
 
-        if (array_key_exists($name, $this->params)) {
-            throw new \InvalidArgumentException("Parameter name '" . $name . "' has already been set");
-        }
+        // if (array_key_exists($name, $this->params)) {
+        //     throw new \InvalidArgumentException("Parameter name '" . $name . "' has already been set");
+        // }
 
         $this->params[$name] = $value;
 
@@ -168,12 +168,9 @@ class Request
         foreach ($arguments as $argument) {
 
             if (strpos($argument, "-") === 0) {
-                if ($currentParamName != null) {
-                    $this->setParameter($currentParamName, true);
-                }
 
                 $currentParamName = ltrim(trim($argument), '-');
-
+                $this->setParameter($currentParamName, true);
 
                 if (strpos($argument, "--") === 0) {
                     if (strlen($currentParamName) < 2) {

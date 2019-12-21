@@ -1,6 +1,6 @@
 <?php
 
-//php script.php command subCommand -a value1 -bc 'value2' --param1 value3 --param2 --pa "value4" --vk value5
+//php script.php command subCommand -a value1 -bc 'value2' --param1 value3 --param2 --pa "value4" --vk value5 -d
 
 chdir(dirname(dirname(__FILE__)));
 
@@ -50,5 +50,10 @@ if ($terminal->getParameter("pa") !== "value4") {
 if ($terminal->getParameter("vk") !== "value5") {
     throw new Exception("Missing or wrong paramerter");
 }
+
+if ($terminal->getParameter("d") !== true) {
+    throw new Exception("Missing or wrong paramerter");
+}
+
 
 dd($terminal->getParams());
