@@ -1,7 +1,7 @@
 {
     "name": "stdakov/terminal-request",
     "description": "Powerful tool for commands",
-    "license": "Apache",
+    "license": "Apache-2.0",
     "type": "library",
     "keywords": [
         "commands",
